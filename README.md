@@ -13,6 +13,15 @@ A shell is just a loop that reads input, parses it, and executes it. This projec
 - Chains commands together using pipes
 
 ## Project structure
+
+```
+src/
+├── shell.py      # Main REPL loop — reads input and coordinates execution
+├── parser.py     # Parses raw input into commands, handles quotes and pipes
+├── builtins.py   # Built-in commands: cd, echo, pwd, exit, clear
+└── executor.py   # Runs external programs and handles pipe chaining
+```
+
 ## Running locally
 
 ```bash
