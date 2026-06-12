@@ -1,25 +1,21 @@
+![CI](https://github.com/Hanningtone03/build-your-own-shell/actions/workflows/ci.yml/badge.svg)
+
 # Build Your Own Shell
 
-A Unix shell built from scratch in Python — supports pipes, built-in commands, and external program execution.
+A Unix shell in Python — pipes, built-in commands, external program execution.
 
 ## How it works
 
-A shell is just a loop that reads input, parses it, and executes it. This project implements that from scratch:
-
-- Reads user input and displays a prompt with the current directory
-- Parses commands including quoted strings and pipe operators
-- Executes built-in commands directly within the shell process
-- Runs external programs as subprocesses
-- Chains commands together using pipes
+A loop that reads a line, parses it into commands and arguments, handles pipes by connecting stdout to stdin across processes, and executes built-ins directly in the shell process.
 
 ## Project structure
 
 ```
 src/
-├── shell.py      # Main REPL loop — reads input and coordinates execution
-├── parser.py     # Parses raw input into commands, handles quotes and pipes
-├── builtins.py   # Built-in commands: cd, echo, pwd, exit, clear
-└── executor.py   # Runs external programs and handles pipe chaining
+├── shell.py
+├── parser.py
+├── builtins.py
+└── executor.py
 ```
 
 ## Running locally
@@ -28,20 +24,19 @@ src/
 python -m src.shell
 ```
 
-## Supported commands
+## Supported
 
-| Command | Example | Description |
-|---------|---------|-------------|
-| echo | `echo hello world` | Print text |
-| pwd | `pwd` | Print current directory |
-| cd | `cd foldername` | Change directory |
-| clear | `clear` | Clear the screen |
-| exit | `exit` | Exit the shell |
-| pipes | `echo hello \| cat` | Chain commands together |
-| any program | `python script.py` | Run any installed program |
+| Command | Example |
+|---------|---------|
+| echo | `echo hello world` |
+| pwd | `pwd` |
+| cd | `cd foldername` |
+| clear | `clear` |
+| exit | `exit` |
+| pipes | `echo hello \| cat` |
 
 ## Tech
 
 - Python 3
-- `os` and `subprocess` modules
+- `os`, `subprocess` modules
 - No external dependencies
